@@ -1,0 +1,12 @@
+{% extends 'booklist/base.html' %}
+
+{% block content %}
+    <h2>{{ book.title }}</h2>
+    <p>Автор: {{ book.author }}</p>
+    <p>Год издания: {{ book.year_published }}</p>
+    <p>Жанры: {{ book.genres.all|join:",: " }}</p>
+    <p>Рейтинг: {{ book.rating }}/10</p>
+    <p>Количество просмотров: {{ book.views_count }}</p>
+    <a href="{% url 'update_book' slug=book.slug %}">Обновить</a>
+    <a href="{% url 'delete_book' slug=book.slug %}">Удалить</a>
+{% endblock %}

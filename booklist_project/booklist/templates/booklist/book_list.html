@@ -1,0 +1,16 @@
+{% extends 'booklist/base.html' %}
+
+{% block content %}
+    <h2>Список книг</h2>
+    <ul>
+        {% for book in books %}
+            <li>
+                {{ book.title }} ({{ book.author }})
+                <a href="{% url 'book_detail' slug=book.slug %}">Перейти</a>
+                <a href="{% url 'update_book' slug=book.slug %}">Обновить</a>
+                <a href="{% url 'delete_book' slug=book.slug %}">Удалить</a>
+            </li>
+        {% endfor %}
+    </ul>
+<a href="{% url 'add_book' %}">Добавить книгу</a>
+{% endblock %}

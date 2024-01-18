@@ -1,0 +1,23 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Book List{% endblock %}</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'book_list' %}">Список книг</a></li>
+            <li><a href="{% url 'add_book' %}">Добавить книгу</a></li>
+            <li><a href="{% url 'add_author' %}">Добавить автора</a></li>
+            <li><a href="{% url 'add_genre' %}">Добавить жанр</a></li>
+        </ul>
+    </nav>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

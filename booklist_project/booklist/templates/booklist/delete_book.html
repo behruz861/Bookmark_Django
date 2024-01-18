@@ -1,0 +1,11 @@
+{% extends 'booklist/base.html' %}
+
+{% block content %}
+    <h2>Удаление книги</h2>
+    <p>Вы уверены, что хотите удалить книгу "{{ book.title }}"?</p>
+    <form method="POST" action="{% url 'delete_book' slug=book.slug %}">
+        {% csrf_token %}
+        <button type="submit">Подтвердить удаление</button>
+    </form>
+<a href="{% url 'book_detail' slug=book.slug %}">Отказаться от удаления</a>
+{% endblock %}

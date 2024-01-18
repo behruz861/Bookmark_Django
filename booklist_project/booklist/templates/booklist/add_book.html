@@ -1,0 +1,11 @@
+{% extends 'booklist/base.html' %}
+
+{% block content %}
+    <h2>Добавление книги</h2>
+    <form method="POST" action="{% url 'add_book' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Добавить книгу</button>
+    </form>
+<a href="{% url 'book_list' %}">Отменить</a>
+{% endblock %}
